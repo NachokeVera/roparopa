@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PrendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('agregar-prenda');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
+Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
+Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
+Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar_prenda');
+Route::get('/eliminar-prenda/{id}', [PrendaController::class, 'eliminar'])->name('eliminar_prenda');
