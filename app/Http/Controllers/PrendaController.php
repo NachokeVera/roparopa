@@ -7,12 +7,12 @@ use App\Public\imagenes\File;
 
 class PrendaController extends Controller
 {
-    public function mostrarFormulario()
+   /*  public function mostrarFormulario()
     {
         return view('prendas.formulario');
     }
             
-    
+     */
 
     public function guardarPrenda(Request $request)
 {
@@ -30,7 +30,7 @@ class PrendaController extends Controller
 
     Prenda::create([
         'imagen' => $imagenPath,
-        'descripcion' => $request->nombre,
+        'nombre' => $request->nombre,
         'descripcion' => $request->descripcion,
         'cantidad' => $request->cantidad,
         'tallaje' => $request->tallaje,

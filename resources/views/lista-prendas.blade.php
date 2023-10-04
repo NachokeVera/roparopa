@@ -1,5 +1,5 @@
 
-@extends('layout')
+@extends('layouts.master')
 
 @section('contenido-principal')
     <h2>Lista de Prendas de Ropa</h2>
@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>Foto</th>
+                <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
@@ -18,7 +19,9 @@
         
             @foreach($prendas as $prenda)
                 <tr>
-                    <td>{{ $prenda->imagen }}</td>
+                    <td>
+                    <img src="{{Storage::url($prenda->imagen)}}"  class="card-img-top">
+                    </td>
                     <td>{{ $prenda->nombre }}</td>
                     <td>{{ $prenda->descripcion }}</td>
                     <td>{{ $prenda->cantidad }}</td>
