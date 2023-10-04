@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('agregar-prenda');
 });
 
-Auth::routes();
+//Auth::routes();
+
+Route::post('/register', [App\Http\Controllers\RegisterController::class, 'registrar'])->name('register');
+Route::get('/register', [App\Http\Controllers\RegisterController::class, 'show'])->name('show.register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
