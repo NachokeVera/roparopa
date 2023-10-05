@@ -22,9 +22,6 @@ class RegisterController extends Controller
         $cuenta->password = $request->password;
         $cuenta->nombre = $request->nombre;
         $cuenta->apellido = $request->apellido;
-        $cuenta->email = $request->email;
-	    $cuenta->direccion = $request->direccion;
-        $cuenta->telefono = $request->telefono;
         //bcrypt($request->password);
         $cuenta->save();
         Auth::login($cuenta);

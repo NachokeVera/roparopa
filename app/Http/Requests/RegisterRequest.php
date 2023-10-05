@@ -28,8 +28,7 @@ class RegisterRequest extends FormRequest
             'rut' => 'required|string|max:10',
             'nombre' => 'required|string|max:20',
             'apellido' => 'required|string|max:20',
-            'email' => 'required|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|max:100',
+            'password' => 'required|string|min:2|max:100',
         ];
     }
 }
