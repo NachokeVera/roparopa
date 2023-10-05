@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -14,8 +16,23 @@ class RegisterController extends Controller
     }
     public function registrar(RegisterRequest $request)
     {
-        $user = User::create($request->validated());
-        return redirect('auth.register');
+        Log::info($request->all()); 
+        $cuenta = new User();
+        $cuenta->rut = $request->rut;
+        $cuenta->password = $request->password;
+        $cuenta->nombre = $request->nombre;
+        $cuenta->apellido = $request->apellido;
+        $cuenta->email = $request->email;
+	    $cuenta->direccion = $request->direccion;
+        $cuenta->telefono = $request->telefono;
+        //bcrypt($request->password);
+        $cuenta->save();
+        Auth::login($cuenta);
+        return redirect()->route('test.register');
         
+    }
+    public function test()
+    {
+        return view('auth.test');
     }
 }

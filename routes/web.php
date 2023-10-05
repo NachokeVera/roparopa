@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrendaController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +20,10 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-Route::post('/register', [App\Http\Controllers\RegisterController::class, 'registrar'])->name('register');
-Route::get('/register', [App\Http\Controllers\RegisterController::class, 'show'])->name('show.register');
+Route::post('/registroPost', [RegisterController::class, 'registrar'])->name('post.register');
+Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
+Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

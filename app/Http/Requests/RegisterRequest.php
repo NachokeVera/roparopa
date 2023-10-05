@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class RegisterRequest extends FormRequest
 {
@@ -21,13 +22,14 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+        
+        Log::info($this->all());
         return [
             'rut' => 'required|string|max:10',
             'nombre' => 'required|string|max:20',
             'apellido' => 'required|string|max:20',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|max:100',
-            'password_confirmation' => 'required|string|min:8|max:100|same:password',
         ];
     }
 }
