@@ -44,7 +44,7 @@ public function inicio(){
         
     ]);
 
-    return redirect('inicio')->with('success', 'Prenda agregada exitosamente.');
+    return redirect('/')->with('success', 'Prenda agregada exitosamente.');
 }
 public function inicioMostrar()
 {
