@@ -32,7 +32,7 @@
                 <td>
                     <a href="{{ route('editar_prenda', ['id' => $prenda->id]) }}" class="btn btn-sm btn-warning">Editar</a>
                     <h3></h3>
-                    <form action="{{ route('eliminar_prenda', ['id' => $prenda->id]) }}" method="POST" style="display: inline;">
+                    <form action="{{ route('eliminar-prenda', $prenda->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta prenda?')">Eliminar</button>

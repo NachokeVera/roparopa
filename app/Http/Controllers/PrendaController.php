@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Prenda;  
 use App\Public\imagenes\File;
+use Illuminate\Support\Facades\Storage;
 
 class PrendaController extends Controller
 {
@@ -77,7 +78,7 @@ public function actualizar(Request $request, $id)
         $prenda = Prenda::find($id);
 
         if (!$prenda) {
-            return redirect()->route('lista_prendas')->with('error', 'Prenda no encontrada.');
+            return redirect()->route('lista-prendas')->with('error', 'Prenda no encontrada.');
         }
 
         // Actualizar los campos de la prenda
@@ -91,22 +92,22 @@ public function actualizar(Request $request, $id)
         if ($request->hasFile('imagen')) {
             // Lógica para manejar la imagen
             // Guardar la nueva imagen y actualizar el campo en la base de datos
+            Storage::delete($prenda->imagen);
             $imagen = $request->file('imagen');
-            $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
-            $imagen->move(public_path('imagenes/prendas'), $nombreImagen);
-            $prenda->imagen = $nombreImagen;
+            $prenda->imagen = $request->imagen->store('public/storage/imagenes');
         }
 
         // Guardar los cambios en la base de datos
         $prenda->save();
 
-        return redirect()->route('lista_prendas')->with('success', 'Prenda actualizada exitosamente.');
+        return redirect()->route('lista-prendas')->with('success', 'Prenda actualizada exitosamente.');
     }
 
     // ...
 
-    public function destroy(Prenda $prenda){
+    public function destroy($id){
         
+        $prenda = Prenda::find($id);
         $prenda->delete();
         return redirect()->route('lista-prendas');
     }

@@ -3,12 +3,16 @@
 
 @section('contenido-principal')
     <h2>Editar Prenda de Ropa</h2>
-    <form method="post" action="{{ route('actualizar_prenda', ['id' => $prenda->id]) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('actualizar-prenda', $prenda->id) }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
             <label for="imagen">Foto:</label>
             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <textarea class="form-control" id="nombre" name="nombre" rows="1"></textarea>
         </div>
 
         <div class="form-group">
@@ -33,8 +37,8 @@
 
         <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta prenda?')">Guardar</button>
     
-</form>
+    </form>
 
         
-    </form>
+    
 @endsection
