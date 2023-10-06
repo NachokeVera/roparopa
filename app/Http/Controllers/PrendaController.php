@@ -43,7 +43,7 @@ public function inicio(){
         
     ]);
 
-    return redirect('/')->with('success', 'Prenda agregada exitosamente.');
+    return redirect()->route('inicio')->with('success', 'Prenda agregada exitosamente.');
 }
 public function inicioMostrar()
 {

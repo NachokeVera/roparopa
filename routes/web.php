@@ -27,12 +27,10 @@ Route::post('/loginPost', [LoginController::class, 'login'])->name('post.login')
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //prueba
 Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
+//Route::get('/admin-panel', 'AdminController@index')->middleware('check.admin');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/inicio', [PrendaController::class, 'inicioMostrar'])->name('inicio');
+Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');
 Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');

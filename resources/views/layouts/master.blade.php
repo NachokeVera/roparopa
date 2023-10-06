@@ -23,21 +23,28 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Ventas</a>
             </li>
+            @auth
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-                Administrar
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->rut }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @if (auth()->user() && (auth()->user()->perfil_id == 1))
                 <a class="dropdown-item" href="{{route('agregar-prenda')}}">Agregar ropa</a>
                 <a class="dropdown-item" href="{{route('lista-prendas')}}">Listar prendas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
-                <a class="dropdown-item" href="#"></a>
+                @else
+                <a class="dropdown-item" href="#">Opcion 1</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">!!!!!!</a>
+                @endif
               </div>
             </li>
-           
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('logout')}}">Cerrar sesión</a>
+            </li>
+            @endauth
+
         </div>
       </nav>
 
@@ -53,7 +60,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWkE4I/8Z6vfa+nEmtH8Wr7kiCfIiW2fG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
     integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
