@@ -20,14 +20,14 @@ Route::get('/', function () {
 });
 
 //Auth::routes();
-
+//registro
 Route::post('/registroPost', [RegisterController::class, 'registrar'])->name('post.register');
 Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
-
+//login
 Route::get('/login', [LoginController::class, 'show'])->name('show.login');
 Route::post('/loginPost', [LoginController::class, 'login'])->name('post.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+//prueba
 Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
 
 
