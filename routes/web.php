@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,11 @@ Route::get('/', function () {
 
 Route::post('/registroPost', [RegisterController::class, 'registrar'])->name('post.register');
 Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
+
+Route::get('/login', [LoginController::class, 'show'])->name('show.login');
+Route::post('/loginPost', [LoginController::class, 'login'])->name('post.login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
 
 

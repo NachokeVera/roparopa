@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('password',100);
             $table->string('nombre',20);
             $table->string('apellido',20);
+            $table->integer('perfil_id')->default(2);
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
