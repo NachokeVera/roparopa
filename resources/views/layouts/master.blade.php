@@ -29,7 +29,7 @@
                 Administrar
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Agregar/editar ropa</a>
+                <a class="dropdown-item" href="{{route('agregar-prenda')}}">Agregar ropa</a>
                 <a class="dropdown-item" href="{{route('lista-prendas')}}">Listar prendas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
                 <a class="dropdown-item" href="#"></a>

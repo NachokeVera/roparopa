@@ -13,9 +13,7 @@ use App\Http\Controllers\PrendaController;
 |
 */
 
-Route::get('/', function () {
-    return view('agregar-prenda');
-});
+Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 
 Auth::routes();
 
@@ -27,4 +25,4 @@ Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
 Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
 Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar_prenda');
-Route::get('/eliminar-prenda/{id}', [PrendaController::class, 'eliminar'])->name('eliminar_prenda');
+Route::delete('/eliminar-prenda/{id}', [PrendaController::class, 'destroy'])->name('eliminar_prenda');

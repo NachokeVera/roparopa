@@ -1,5 +1,5 @@
 
-@extends('layout')
+@extends('layouts.master')
 
 @section('contenido-principal')
     <h2>Editar Prenda de Ropa</h2>
@@ -31,9 +31,10 @@
             <input type="text" class="form-control" id="tallaje" name="tallaje">
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta prenda?')">Guardar</button>
+    
 </form>
 
-        <button type="submit" class="btn btn-primary">Actualizar</button>
+        
     </form>
 @endsection

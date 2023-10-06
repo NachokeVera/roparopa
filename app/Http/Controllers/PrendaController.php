@@ -13,7 +13,9 @@ class PrendaController extends Controller
     }
             
      */
-
+    public function agregarPrenda(){
+    return view('agregar-prenda');
+}
     public function guardarPrenda(Request $request)
 {
     $request->validate([
@@ -26,7 +28,7 @@ class PrendaController extends Controller
         
     ]);
 
-    $imagenPath = $request->file('imagen')->store('public/imagenes');
+    $imagenPath = $request->file('imagen')->store('public/storage/imagenes');
 
     Prenda::create([
         'imagen' => $imagenPath,
@@ -92,26 +94,9 @@ public function actualizar(Request $request, $id)
 
     // ...
 
-    public function eliminar($id)
-    {
-        $prenda = Prenda::find($id);
-
-        if (!$prenda) {
-            return redirect()->route('lista_prendas')->with('error', 'Prenda no encontrada.');
-        }
-
-        // Eliminar la imagen asociada a la prenda si existe
-        if (!empty($prenda->imagen)) {
-            $rutaImagen = public_path('imagenes/prendas/' . $prenda->imagen);
-            if (File::exists($rutaImagen)) {
-                File::delete($rutaImagen);
-            }
-        }
-
-        // Eliminar la prenda de la base de datos
+    public function destroy(Prenda $prenda){
+        
         $prenda->delete();
-
-        return redirect()->route('lista_prendas')->with('success', 'Prenda eliminada exitosamente.');
+        return redirect()->route('lista-prendas');
     }
-
 }
