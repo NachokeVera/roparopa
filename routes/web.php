@@ -37,5 +37,5 @@ Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name(
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
 Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
-Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar_prenda');
-Route::delete('/eliminar-prenda/{id}', [PrendaController::class, 'destroy'])->name('eliminar_prenda');
+Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar-prenda');
+Route::delete('/eliminar-prenda/{id}', [PrendaController::class, 'destroy'])->name('eliminar-prenda');
