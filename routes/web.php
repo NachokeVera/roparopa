@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrendaController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,17 @@ use App\Http\Controllers\PrendaController;
 
 Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 
-Auth::routes();
+//Auth::routes();
+//registro
+Route::post('/registroPost', [RegisterController::class, 'registrar'])->name('post.register');
+Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
+//login
+Route::get('/login', [LoginController::class, 'show'])->name('show.login');
+Route::post('/loginPost', [LoginController::class, 'login'])->name('post.login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+//prueba
+Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

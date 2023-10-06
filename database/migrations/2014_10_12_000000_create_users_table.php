@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement();
-            $table->string('rut',10)->unique()->nullable();
-            $table->string('nombre',20)->nullable();
-            $table->string('apellido',20)->nullable();
-            $table->string('email')->unique()->nullable();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('rut',10)->unique();
             $table->string('password',100);
-            $table->string('direccion',50);
-            $table->string('telefono',9);
+            $table->string('nombre',20);
+            $table->string('apellido',20);
+            $table->integer('perfil_id')->default(2);
             $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }
