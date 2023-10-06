@@ -16,6 +16,9 @@ class PrendaController extends Controller
     public function agregarPrenda(){
     return view('agregar-prenda');
 }
+public function inicio(){
+    return view('inicio');
+}
     public function guardarPrenda(Request $request)
 {
     $request->validate([
@@ -42,6 +45,14 @@ class PrendaController extends Controller
 
     return redirect('/')->with('success', 'Prenda agregada exitosamente.');
 }
+public function inicioMostrar()
+{
+    $prendas = Prenda::all(); // o cualquier consulta para obtener las prendas
+    return view('inicio', compact('prendas'));
+}
+
+
+
 public function mostrarLista()
 {
     $prendas = Prenda::all();

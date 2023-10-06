@@ -15,7 +15,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
+
 
 //Auth::routes();
 //registro
@@ -32,7 +32,8 @@ Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
+Route::get('/inicio', [PrendaController::class, 'inicioMostrar'])->name('inicio');
+Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
 Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
