@@ -23,7 +23,6 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         
-        Log::info($this->all());
         return [
             'rut' => 'required|string|max:10|unique:users,rut',
             'nombre' => 'required|string|max:20',

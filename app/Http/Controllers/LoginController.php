@@ -15,7 +15,7 @@ class LoginController extends Controller
         $rut = $request->rut;
         $password = $request->password;
         if (Auth::attempt(['rut' => $rut, 'password' => $password])) {
-            return redirect()->route('test.register');
+            return redirect()->route('inicio');
         }
         else{
             return redirect()->route('show.login')->withErrors(trans('auth.failed'));

@@ -10,19 +10,21 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-        <a class="navbar-brand" href="#">Tienda</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BCDPKLK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="{{route('inicio')}}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Ventas</a>
             </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
             @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -33,20 +35,27 @@
                 <a class="dropdown-item" href="{{route('agregar-prenda')}}">Agregar ropa</a>
                 <a class="dropdown-item" href="{{route('lista-prendas')}}">Listar prendas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
+                <a class="dropdown-item" href="{{route('logout')}}">Cerrar sesión</a>
                 @else
                 <a class="dropdown-item" href="#">Opcion 1</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">!!!!!!</a>
+                <a class="dropdown-item" href="{{route('logout')}}">Cerrar sesión</a>
                 @endif
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('logout')}}">Cerrar sesión</a>
-            </li>
             @endauth
-
+            @guest
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('show.login')}}">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('show.register')}}">Registrar</a>
+            </li>
+            @endguest
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
     <div class="container mt-5">
         <!-- Contenido de la página -->

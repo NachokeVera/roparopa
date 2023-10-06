@@ -25,7 +25,7 @@ class RegisterController extends Controller
         //bcrypt($request->password);
         $cuenta->save();
         Auth::login($cuenta);
-        return redirect()->route('test.register');
+        return redirect()->route('inicio');
         
     }
     public function test()

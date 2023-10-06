@@ -21,10 +21,16 @@
                                 <label for="rut">Rut</label>
                                 <input type="text" class="form-control" id="rut" name="rut" required>
                             </div>
+                            @error('rut')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
+                            @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <div class="mb-3"><a href="{{route('show.register')}}">Registrarse</a></div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>

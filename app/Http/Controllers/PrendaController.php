@@ -15,57 +15,52 @@ class PrendaController extends Controller
             
      */
     public function agregarPrenda(){
-    return view('agregar-prenda');
-}
-public function inicio(){
-    return view('inicio');
-}
-    public function guardarPrenda(Request $request)
-{
-    $request->validate([
-        'imagen' => 'required|image',
-        'nombre' => 'required',
-        'descripcion' => 'required',
-        'cantidad' => 'required|integer',
-        'tallaje' => 'required',
-        'precio' => 'required|integer',
-        
-    ]);
+        return view('admin.form-prenda');
+    }
+    public function inicio(){
+        return view('inicio');
+    }
+    public function guardarPrenda(Request $request){
+        $request->validate([
+            'imagen' => 'required|image',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'cantidad' => 'required|integer',
+            'tallaje' => 'required',
+            'precio' => 'required|integer',
+            
+        ]);
 
-    $imagenPath = $request->file('imagen')->store('public/storage/imagenes');
+        $imagenPath = $request->file('imagen')->store('public/storage/imagenes');
 
-    Prenda::create([
-        'imagen' => $imagenPath,
-        'nombre' => $request->nombre,
-        'descripcion' => $request->descripcion,
-        'cantidad' => $request->cantidad,
-        'tallaje' => $request->tallaje,
-        'precio' => $request->precio,
-        
-    ]);
+        Prenda::create([
+            'imagen' => $imagenPath,
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'cantidad' => $request->cantidad,
+            'tallaje' => $request->tallaje,
+            'precio' => $request->precio,
+            
+        ]);
 
-    return redirect()->route('inicio')->with('success', 'Prenda agregada exitosamente.');
-}
-public function inicioMostrar()
-{
-    $prendas = Prenda::all(); // o cualquier consulta para obtener las prendas
-    return view('inicio', compact('prendas'));
-}
+        return redirect()->route('inicio')->with('success', 'Prenda agregada exitosamente.');
+    }
+    public function inicioMostrar(){
+        $prendas = Prenda::all(); // o cualquier consulta para obtener las prendas
+        return view('inicio', compact('prendas'));
+    }
 
 
 
-public function mostrarLista()
-{
-    $prendas = Prenda::all();
-    return view('lista-prendas', compact('prendas'));
-}
-public function mostrarEditar($id)
-{
-    $prenda = Prenda::find($id);
-    return view('editar-prenda', compact('prenda'));
-}
-public function actualizar(Request $request, $id)
-    {
+    public function mostrarLista(){
+        $prendas = Prenda::all();
+        return view('admin.lista-prendas', compact('prendas'));
+    }
+    public function mostrarEditar($id){
+        $prenda = Prenda::find($id);
+        return view('admin.editar-prenda', compact('prenda'));
+    }
+    public function actualizar(Request $request, $id){
         $request->validate([
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nombre' => 'required',
@@ -103,12 +98,13 @@ public function actualizar(Request $request, $id)
         return redirect()->route('lista-prendas')->with('success', 'Prenda actualizada exitosamente.');
     }
 
-    // ...
-
     public function destroy($id){
         
         $prenda = Prenda::find($id);
         $prenda->delete();
         return redirect()->route('lista-prendas');
+    }
+    public function denegado(){
+        return view('acceso-denegado');
     }
 }

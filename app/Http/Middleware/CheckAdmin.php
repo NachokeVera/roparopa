@@ -18,12 +18,12 @@ class CheckAdmin
         // Verifica si el usuario está autenticado
         if (Auth::check()) {
             // Verifica si el usuario tiene el atributo "rol" igual a 1 (administrador)
-            if (Auth::user()->rol == 1) {
+            if (Auth::user()->perfil_id == 1) {
                 return $next($request); // Permítelo pasar al siguiente middleware o controlador
             }
         }
 
         // Si no es un administrador, redirige a alguna página o muestra un error
-        return redirect('/')->with('error', 'No tienes permiso para acceder a esta página.');
+        return redirect('/acceso-denegado'); //->with('error', 'No tienes permiso para acceder a esta página.')
     }
 }
