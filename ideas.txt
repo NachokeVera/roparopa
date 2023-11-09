@@ -1,0 +1,5 @@
+El carrito de compras tiene que estar hecho en jscrip;
+analizar de vuelta el modelo, ver el tema de la talla
+quizas llamar al detalle carrito como historial de compras, cosa que
+almacene un ID de un vestimenta_talla y que con este y una cantidad de PRODUCTO VENDIDO
+o algo asi, pienza myke
