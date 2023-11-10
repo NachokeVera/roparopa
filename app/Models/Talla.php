@@ -11,8 +11,12 @@ class Talla extends Model
 
     public $timestamps = false;
 
-    public function vestimentas(): HasMany
+    public function vestimentasTalla(): HasMany
     {
-        return $this->hasMany(Vestimenta::class);
+        return $this->hasMany(VestimentaTalla::class);
+    }
+    public function detalleCompra(): HasMany
+    {
+        return $this->hasMany(DetalleCompra::class);
     }
 }

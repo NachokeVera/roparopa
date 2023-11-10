@@ -17,12 +17,12 @@ return new class extends Migration
             //atributos
             $table->string('cantidad_compra');
             //foreing key
-            $table->unsignedBigInteger('id_vestimenta');
-            $table->unsignedBigInteger('id_talla');
-            $table->unsignedBigInteger('id_boleta');
-            $table->foreign('id_vestimenta')->references('id_vestimenta')->on('vestimenta_tallas');
-            $table->foreign('id_talla')->references('id_talla')->on('vestimenta_tallas');
-            $table->foreign('id_boleta')->references('id')->on('boletas');
+            $table->unsignedBigInteger('vestimenta_id');
+            $table->unsignedBigInteger('talla_id');
+            $table->unsignedBigInteger('boleta_id');
+            $table->foreign('vestimenta_id')->references('id')->on('vestimenta_tallas');
+            $table->foreign('talla_id')->references('id')->on('vestimenta_tallas');
+            $table->foreign('boleta_id')->references('id')->on('boletas');
             $table->timestamps();
         });
     }

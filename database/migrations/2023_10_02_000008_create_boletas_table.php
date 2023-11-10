@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('boletas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_users');
+            $table->unsignedBigInteger('users_id');
             $table->date('fecha_venta');
             $table->integer('total_venta');
-            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
