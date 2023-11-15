@@ -32,8 +32,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @if (auth()->user() && (auth()->user()->perfil_id == 1))
-                <a class="dropdown-item" href="{{route('agregar-prenda')}}">Agregar ropa</a>
-                <a class="dropdown-item" href="{{route('lista-prendas')}}">Listar prendas</a>
+                <a class="dropdown-item" href="{{route('agregar-vestimenta')}}">Agregar ropa</a>
+                <a class="dropdown-item" href="{{route('lista-vestimentas')}}">Listar vestimentas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
                 <a class="dropdown-item" href="{{route('logout')}}">Cerrar sesión</a>
                 @else

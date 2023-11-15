@@ -13,13 +13,9 @@ class DetalleCompra extends Model
     //Uno a muchos
     
     //Conexiones FK
-    public function vestimenta(): BelongsTo
+    public function detalleVestimenta(): BelongsTo
     {
-        return $this->belongsTo(Vestimenta::class);
-    }
-    public function talla(): BelongsTo
-    {
-        return $this->belongsTo(Talla::class);
+        return $this->belongsTo(DetalleVestimenta::class);
     }
     public function boleta(): BelongsTo
     {

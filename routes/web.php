@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\VestimentaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,22 @@ use App\Http\Controllers\LoginController;
 //Auth::routes();
 //registro
 Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
-Route::post('/registroPost', [RegisterController::class, 'registrar'])->name('post.register');
+Route::post('/registro', [RegisterController::class, 'registrar'])->name('post.register');
 //login
 Route::get('/login', [LoginController::class, 'show'])->name('show.login');
-Route::post('/loginPost', [LoginController::class, 'login'])->name('post.login');
+Route::post('/login', [LoginController::class, 'login'])->name('post.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //prueba
 Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
-//Route::get('/admin-panel', 'AdminController@index')->middleware('check.admin');
+
+Route::resource('vestimentas',VestimentaController::class);//->middleware(['middleware_name'])->only(['create', 'edit'])
 
 
+
+
+
+
+/*
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');
 //Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
@@ -38,7 +45,10 @@ Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->n
 Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar-prenda');
 Route::delete('/eliminar-prenda/{id}', [PrendaController::class, 'destroy'])->name('eliminar-prenda');
 
+
+
 Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda')->middleware('checkadmin');
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas')->middleware('checkadmin');
 Route::get('/acceso-denegado', [PrendaController::class, 'denegado'])->name('show.denegado');
 
+*/

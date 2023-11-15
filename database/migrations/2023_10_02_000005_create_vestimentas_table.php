@@ -17,12 +17,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->integer('precio');
-            $table->unsignedBigInteger('categoria_id');
-            //foreing keys
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
-    
-            
         });
     }
     
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prendas');
+        Schema::dropIfExists('vestimentas');
     }
 };

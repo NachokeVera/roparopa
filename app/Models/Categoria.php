@@ -12,8 +12,9 @@ class Categoria extends Model
 
     protected $fillable = ['nombre'];
 
-    public function vestimentas(): HasMany
+    public function detalleVestimentas(): HasMany
     {
-        return $this->hasMany(Vestimenta::class);
+        return $this->hasMany(DetalleVestimenta::class);
     }
+
 }

@@ -1,26 +1,27 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\DetalleVestimenta;
 use Illuminate\Http\Request;
-use App\Models\Prenda;  
 use App\Public\imagenes\File;
 use Illuminate\Support\Facades\Storage;
 
-class PrendaController extends Controller
+class DetalleVestimentaController extends Controller
 {
    /*  public function mostrarFormulario()
     {
-        return view('prendas.formulario');
+        return view('vestimentas.formulario');
     }
             
      */
-    public function agregarPrenda(){
-        return view('admin.form-prenda');
+    public function agregarvestimenta(){
+        return view('admin.form-vestimenta');
     }
     public function inicio(){
         return view('inicio');
     }
-    public function guardarPrenda(Request $request){
+
+    public function guardarvestimenta(Request $request){
         $request->validate([
             'imagen' => 'required|image',
             'nombre' => 'required',
@@ -33,7 +34,7 @@ class PrendaController extends Controller
 
         $imagenPath = $request->file('imagen')->store('public/storage/imagenes');
 
-        Prenda::create([
+        DetalleVestimenta::create([
             'imagen' => $imagenPath,
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
@@ -43,22 +44,17 @@ class PrendaController extends Controller
             
         ]);
 
-        return redirect()->route('inicio')->with('success', 'Prenda agregada exitosamente.');
+        return redirect()->route('inicio')->with('success', 'vestimenta agregada exitosamente.');
     }
     public function inicioMostrar(){
-        $prendas = Prenda::all(); // o cualquier consulta para obtener las prendas
-        return view('inicio', compact('prendas'));
+        $vestimentas = DetalleVestimenta::all(); // o cualquier consulta para obtener las vestimentas
+        return view('inicio', compact('vestimentas'));
     }
 
 
-
-    public function mostrarLista(){
-        $prendas = Prenda::all();
-        return view('admin.lista-prendas', compact('prendas'));
-    }
     public function mostrarEditar($id){
-        $prenda = Prenda::find($id);
-        return view('admin.editar-prenda', compact('prenda'));
+        $vestimenta = vestimenta::find($id);
+        return view('admin.editar-vestimenta', compact('vestimenta'));
     }
     public function actualizar(Request $request, $id){
         $request->validate([
@@ -70,39 +66,39 @@ class PrendaController extends Controller
             'tallaje' => 'required',
         ]);
 
-        $prenda = Prenda::find($id);
+        $vestimenta = vestimenta::find($id);
 
-        if (!$prenda) {
-            return redirect()->route('lista-prendas')->with('error', 'Prenda no encontrada.');
+        if (!$vestimenta) {
+            return redirect()->route('lista-vestimentas')->with('error', 'vestimenta no encontrada.');
         }
 
-        // Actualizar los campos de la prenda
-        $prenda->nombre = $request->nombre;
-        $prenda->descripcion = $request->descripcion;
-        $prenda->cantidad = $request->cantidad;
-        $prenda->precio = $request->precio;
-        $prenda->tallaje = $request->tallaje;
+        // Actualizar los campos de la vestimenta
+        $vestimenta->nombre = $request->nombre;
+        $vestimenta->descripcion = $request->descripcion;
+        $vestimenta->cantidad = $request->cantidad;
+        $vestimenta->precio = $request->precio;
+        $vestimenta->tallaje = $request->tallaje;
 
         // Actualizar la imagen si se proporciona una nueva
         if ($request->hasFile('imagen')) {
             // Lógica para manejar la imagen
             // Guardar la nueva imagen y actualizar el campo en la base de datos
-            Storage::delete($prenda->imagen);
+            Storage::delete($vestimenta->imagen);
             $imagen = $request->file('imagen');
-            $prenda->imagen = $request->imagen->store('public/storage/imagenes');
+            $vestimenta->imagen = $request->imagen->store('public/storage/imagenes');
         }
 
         // Guardar los cambios en la base de datos
-        $prenda->save();
+        $vestimenta->save();
 
-        return redirect()->route('lista-prendas')->with('success', 'Prenda actualizada exitosamente.');
+        return redirect()->route('lista-vestimentas')->with('success', 'vestimenta actualizada exitosamente.');
     }
 
     public function destroy($id){
         
-        $prenda = Prenda::find($id);
-        $prenda->delete();
-        return redirect()->route('lista-prendas');
+        $vestimenta = vestimenta::find($id);
+        $vestimenta->delete();
+        return redirect()->route('lista-vestimentas');
     }
     public function denegado(){
         return view('acceso-denegado');

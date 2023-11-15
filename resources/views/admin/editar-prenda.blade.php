@@ -2,8 +2,8 @@
 @extends('layouts.master')
 
 @section('contenido-principal')
-    <h2>Editar Prenda de Ropa</h2>
-    <form method="post" action="{{ route('actualizar-prenda', $prenda->id) }}" enctype="multipart/form-data">
+    <h2>Editar vestimenta de Ropa</h2>
+    <form method="post" action="{{ route('actualizar-vestimenta', $vestimenta->id) }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -35,7 +35,7 @@
             <input type="text" class="form-control" id="tallaje" name="tallaje">
         </div>
 
-        <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta prenda?')">Guardar</button>
+        <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta vestimenta?')">Guardar</button>
     
     </form>
 

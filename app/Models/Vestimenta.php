@@ -12,18 +12,9 @@ class Vestimenta extends Model
 
     protected $fillable = ['imagen','nombre', 'descripcion', 'precio'];
     //uno a muchos
-    public function vestimentasTalla(): HasMany
+    public function detalleVestimentas(): HasMany
     {
-        return $this->hasMany(VestimentaTalla::class);
-    }
-    public function detalleCompra(): HasMany
-    {
-        return $this->hasMany(DetalleCompra::class);
-    }
-    //Conexion FK
-    public function categoria(): BelongsTo
-    {
-        return $this->belongsTo(Categoria::class);
+        return $this->hasMany(DetalleVestimenta::class);
     }
 
 }

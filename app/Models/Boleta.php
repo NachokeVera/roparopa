@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Boleta extends Model
 {
     use HasFactory;
-    public function detalleCompra(): HasMany
+    public function detalleCompras(): HasMany
     {
         return $this->hasMany(DetalleCompra::class);
     }

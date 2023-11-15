@@ -7,10 +7,10 @@
       <div class="col-md-6">
           <div class="card">
               <div class="card-header bg-primary text-white">
-                  <h2 class="mb-0">Agregar Prenda de Ropa</h2>
+                  <h2 class="mb-0">Agregar vestimenta de Ropa</h2>
               </div>
               <div class="card-body">
-                  <form method="post" action="{{ route('guardar_prenda') }}" enctype="multipart/form-data">
+                  <form method="post" action="{{ route('guardar_vestimenta') }}" enctype="multipart/form-data">
                       @csrf
 
                             <div class="form-group">
