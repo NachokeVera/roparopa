@@ -10,7 +10,7 @@
                   <h2 class="mb-0">Agregar vestimenta de Ropa</h2>
               </div>
               <div class="card-body">
-                  <form method="post" action="{{ route('guardar_vestimenta') }}" enctype="multipart/form-data">
+                  <form method="post" action="{{ route('vestimentas.store') }}" enctype="multipart/form-data">
                       @csrf
 
                             <div class="form-group">

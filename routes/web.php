@@ -32,13 +32,8 @@ Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
 Route::resource('vestimentas',VestimentaController::class);//->middleware(['middleware_name'])->only(['create', 'edit'])
 
 
-
-
-
-
-/*
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');
-//Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
+Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
 //Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
 Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
@@ -51,4 +46,4 @@ Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name(
 Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas')->middleware('checkadmin');
 Route::get('/acceso-denegado', [PrendaController::class, 'denegado'])->name('show.denegado');
 
-*/
+
