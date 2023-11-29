@@ -13,17 +13,18 @@
         </div>
         <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <textarea class="form-control" id="nombre" name="nombre" rows="1"></textarea>
+            <textarea class="form-control" id="nombre" name="nombre" rows="1">{{ $vestimentas->nombre }}</textarea>
+
         </div>
 
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3">{{ $vestimentas->descripcion }}</textarea>
         </div>
 
         <div class="form-group">
             <label for="precio">Precio:</label>
-            <input type="number" class="form-control" id="precio" name="precio" step="1">
+            <input type="number" class="form-control" id="precio" name="precio" step="1" value="{{ $vestimentas->precio }}">
         </div>
 
         {{-- <div class="form-group">
