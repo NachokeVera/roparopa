@@ -1,10 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\DetalleVestimenta;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Public\imagenes\File;
 use Illuminate\Support\Facades\Storage;
+use App\Models\DetalleVestimenta;
+use App\Models\Talla;
+use App\Models\Vestimenta;
+use Database\Seeders\CategoriaSeeder;
 
 class DetalleVestimentaController extends Controller
 {
@@ -102,5 +106,32 @@ class DetalleVestimentaController extends Controller
     }
     public function denegado(){
         return view('acceso-denegado');
+    }
+
+
+    ////////////////////////////////////////////////////////////////////
+
+    public function create(){
+        $vestimentas = Vestimenta::all();
+        $tallas = Talla::all();
+        $categorias = Categoria::all();
+
+        return view('admin.detalle_vestimenta.det_vest_crear', compact('vestimentas','tallas','categorias'));
+    }
+    public function store(Request $request){
+
+        $vestimentaId = (int)$request->input('RadioVest');
+        $tallaId = (int)$request->talla;
+        $categoriaId = (int)$request->input('categoria');
+        $cantidad = (int)$request->input('cantidad');
+
+        // Crear el detalle de vestimenta
+        DetalleVestimenta::create([
+            'vestimenta_id' => $vestimentaId,
+            'talla_id' => $tallaId,
+            'categoria_id' => $categoriaId,
+            'cantidad' => $cantidad,
+        ]);
+        return redirect()->route('inicio');
     }
 }

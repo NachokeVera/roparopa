@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VestimentaController;
+use App\Http\Controllers\DetalleVestimentaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,8 @@ Route::get('/', [VestimentaController::class, 'index'])->name('inicio');
 Route::get('/admin/vestimentas', [VestimentaController::class, 'mostrarLista'])->name('admin.show.vestimenta');
 Route::get('/admin/vestimentas/{id}', [VestimentaController::class, 'mostrarEditar'])->name('admin.edit.vestimenta');
 
+
+Route::resource('detalles_vestimentas',DetalleVestimentaController::class);
 /*
 
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');

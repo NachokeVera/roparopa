@@ -11,6 +11,7 @@ class DetalleVestimenta extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['vestimenta_id','talla_id', 'categoria_id', 'cantidad'];
     public function vestimenta(): BelongsTo
     {
         return $this->belongsTo(Vestimenta::class);
