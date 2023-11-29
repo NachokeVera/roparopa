@@ -89,7 +89,7 @@ class VestimentaController extends Controller
         // Guardar los cambios en la base de datos
         $vestimenta->save();
 
-        return redirect()->route('lista-vestimentas')->with('success', 'vestimenta actualizada exitosamente.');
+        return redirect()->route('admin.show.vestimenta')->with('success', 'vestimenta actualizada exitosamente.');
     }
 
     /**
@@ -99,6 +99,18 @@ class VestimentaController extends Controller
     {
         $vestimenta = vestimenta::find($id);
         $vestimenta->delete();
-        return redirect()->route('lista-vestimentas');
+        return redirect()->route('admin.show.vestimenta');
+    }
+
+    /////////////////////
+
+    public function mostrarLista(){
+        $vestimentas = vestimenta::all();
+        return view('admin.lista-prendas', compact('vestimentas'));
+    }
+
+    public function mostrarEditar($id){
+        $vestimentas = vestimenta::find($id);
+        return view('admin.editar-vestimenta', compact('vestimentas'));
     }
 }

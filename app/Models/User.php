@@ -22,10 +22,11 @@ class User extends Authenticatable
         'rut',
         'password',
         'nombre',
-        'apellido',
-        'correo',
+        'apellido'
+
+        /* 'correo',
         'direccion',
-        'telefono'
+        'telefono' */
     ];
 
     /**

@@ -26,21 +26,23 @@
                                 <label for="descripcion">Descripción:</label>
                                 <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
                             </div>
-
+                             
+                            <div class="form-group">
+                                <label for="precio">Precio:</label>
+                                <input type="number" class="form-control" id="precio" name="precio" step="1">
+                            </div>
+                            {{-- 
                             <div class="form-group">
                                 <label for="cantidad">Cantidad:</label>
                                 <input type="number" class="form-control" id="cantidad" name="cantidad">
                             </div>
 
-                            <div class="form-group">
-                                <label for="precio">Precio:</label>
-                                <input type="number" class="form-control" id="precio" name="precio" step="1">
-                            </div>
-
+                            
                             <div class="form-group">
                                 <label for="tallaje">Tallaje:</label>
                                 <input type="text" class="form-control" id="tallaje" name="tallaje">
-                            </div>
+                            </div> 
+                            --}}
 
                             <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>

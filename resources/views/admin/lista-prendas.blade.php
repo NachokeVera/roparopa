@@ -30,9 +30,9 @@
                 <td>{{ $vestimenta->precio }}</td>
                 <td>{{ $vestimenta->tallaje }}</td>
                 <td>
-                    <a href="{{ route('editar_vestimenta', ['id' => $vestimenta->id]) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{{ route('admin.edit.vestimenta', ['id' => $vestimenta->id]) }}" class="btn btn-sm btn-warning">Editar</a>
                     <h3></h3>
-                    <form action="{{ route('eliminar-vestimenta', $vestimenta->id) }}" method="POST" style="display: inline;">
+                    <form action="{{ route('vestimentas.destroy', $vestimenta->id) }}" method="POST" style="display: inline;"> 
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta vestimenta?')">Eliminar</button>

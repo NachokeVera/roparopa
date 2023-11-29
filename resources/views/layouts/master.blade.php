@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="{{route('inicio')}}">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Ventas</a>
@@ -32,8 +32,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @if (auth()->user() && (auth()->user()->perfil_id == 1))
-                <a class="dropdown-item" href="{{route('agregar-vestimenta')}}">Agregar ropa</a>
-                <a class="dropdown-item" href="{{route('lista-vestimentas')}}">Listar vestimentas</a>
+                <a class="dropdown-item" href="{{ route('vestimentas.create') }}">Agregar ropa</a>
+                <a class="dropdown-item" href="{{ route('admin.show.vestimenta') }}">Listar vestimentas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
                 <a class="dropdown-item" href="{{route('logout')}}">Cerrar sesión</a>
                 @else
@@ -58,13 +58,7 @@
     </nav>
 
     <div class="container mt-5">
-        <!-- Contenido de la página -->
-        <!-- ... -->
-
-
-
-            @yield('contenido-principal')
-        
+      @yield('contenido-principal')  
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWkE4I/8Z6vfa+nEmtH8Wr7kiCfIiW2fG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

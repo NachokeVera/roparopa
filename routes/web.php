@@ -30,13 +30,18 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/test', [RegisterController::class, 'test'])->name('test.register');
 
 Route::resource('vestimentas',VestimentaController::class);//->middleware(['middleware_name'])->only(['create', 'edit'])
+Route::get('/', [VestimentaController::class, 'index'])->name('inicio');
 
+Route::get('/admin/vestimentas', [VestimentaController::class, 'mostrarLista'])->name('admin.show.vestimenta');
+Route::get('/admin/vestimentas/{id}', [VestimentaController::class, 'mostrarEditar'])->name('admin.edit.vestimenta');
+
+/*
 
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');
 Route::get('/agregar-prenda', [PrendaController::class, 'agregarPrenda'])->name('agregar-prenda');
 Route::post('/guardar-prenda', [PrendaController::class, 'guardarPrenda'])->name('guardar_prenda');
 //Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('lista-prendas');
-Route::get('/editar-prenda/{id}', [PrendaController::class, 'mostrarEditar'])->name('editar_prenda');
+
 Route::post('/actualizar-prenda/{id}', [PrendaController::class, 'actualizar'])->name('actualizar-prenda');
 Route::delete('/eliminar-prenda/{id}', [PrendaController::class, 'destroy'])->name('eliminar-prenda');
 
@@ -47,3 +52,4 @@ Route::get('/lista-prendas', [PrendaController::class, 'mostrarLista'])->name('l
 Route::get('/acceso-denegado', [PrendaController::class, 'denegado'])->name('show.denegado');
 
 
+*/

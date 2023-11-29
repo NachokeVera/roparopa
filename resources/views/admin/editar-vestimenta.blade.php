@@ -3,9 +3,10 @@
 
 @section('contenido-principal')
     <h2>Editar vestimenta de Ropa</h2>
-    <form method="post" action="{{ route('actualizar-vestimenta', $vestimenta->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('vestimentas.update', $vestimentas->id) }}" enctype="multipart/form-data">
         @csrf
-
+        @method('PUT')
+        
         <div class="form-group">
             <label for="imagen">Foto:</label>
             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
@@ -21,19 +22,19 @@
         </div>
 
         <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" class="form-control" id="precio" name="precio" step="1">
+        </div>
+
+        {{-- <div class="form-group">
             <label for="cantidad">Cantidad:</label>
             <input type="number" class="form-control" id="cantidad" name="cantidad">
         </div>
 
         <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="number" class="form-control" id="precio" name="precio" step="1">
-        </div>
-
-        <div class="form-group">
             <label for="tallaje">Tallaje:</label>
             <input type="text" class="form-control" id="tallaje" name="tallaje">
-        </div>
+        </div> --}}
 
         <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta vestimenta?')">Guardar</button>
     
