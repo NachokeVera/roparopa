@@ -5,6 +5,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VestimentaController;
 use App\Http\Controllers\DetalleVestimentaController;
+// web.php
+
+
+
+
 
 
 /*
@@ -39,6 +44,10 @@ Route::get('/admin/vestimentas/{id}', [VestimentaController::class, 'mostrarEdit
 
 
 Route::resource('detalles_vestimentas',DetalleVestimentaController::class);
+// En tu archivo de rutas (web.php)
+Route::get('/mostrar-prendas', [VestimentaController::class, 'mostrarPrendas'])->name('filtrar-prenda');
+
+
 /*
 
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');

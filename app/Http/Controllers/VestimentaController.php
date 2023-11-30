@@ -113,4 +113,23 @@ class VestimentaController extends Controller
         $vestimentas = vestimenta::find($id);
         return view('admin.editar-vestimenta', compact('vestimentas'));
     }
+    // En tu controlador
+    public function mostrarPrendas(Request $request)
+    {
+        // Obtener todas las vestimentas
+        $vestimentas = Vestimenta::all();
+    
+        // Obtener el nombre de la prenda desde la solicitud
+        $nombre_prenda = $request->input('nombre_prenda');
+    
+        // Aplicar el filtro si se proporciona un nombre de prenda
+        if ($nombre_prenda) {
+            $vestimentas = Vestimenta::where('nombre', $nombre_prenda)->get();
+        }
+    
+
+    return view('inicio', compact('vestimentas', 'nombre_prenda'));
 }
+
+}
+
