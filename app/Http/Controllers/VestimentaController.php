@@ -116,7 +116,7 @@ class VestimentaController extends Controller
     // En tu controlador
     public function mostrarPrendas(Request $request)
     {
-        // Obtener todas las vestimentas
+        
         $vestimentas = Vestimenta::all();
     
         // Obtener el nombre de la prenda desde la solicitud
