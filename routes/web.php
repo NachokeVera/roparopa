@@ -5,6 +5,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VestimentaController;
 use App\Http\Controllers\DetalleVestimentaController;
+// web.php
+
+
+
+
 
 
 /*

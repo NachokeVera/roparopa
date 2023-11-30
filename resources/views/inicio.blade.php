@@ -2,6 +2,18 @@
 
 @section('contenido-principal')
 <div class="container mt-4">
+    <form method="GET" action="{{ route('filtrar-prenda') }}">
+        <div class="form-group">
+            <label for="nombre_prenda">Selecciona la vestimenta:</label>
+            <select class="form-control" id="nombre_prenda" name="nombre_prenda">
+                <option value="">Todas las vestimentas</option>
+                @foreach ($vestimentas as $vestimenta)
+                    <option value="{{ $vestimenta->nombre }}">{{ $vestimenta->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
     <div class="row">
         @foreach ($vestimentas as $vestimenta)
             <div class="col-md-4 mb-4">
