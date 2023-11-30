@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="bg-light"> 
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
       <div class="container-fluid">
@@ -60,6 +59,8 @@
     <div class="container mt-5">
       @yield('contenido-principal')  
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWkE4I/8Z6vfa+nEmtH8Wr7kiCfIiW2fG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
     integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
