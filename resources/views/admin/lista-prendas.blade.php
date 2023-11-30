@@ -12,8 +12,8 @@
             <th>Descripción</th>
             <th>Cantidad</th>
             <th>Precio</th>
-            <th>Tallaje</th>
-            <th>Acciones</th>
+            <th>Categoria</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -28,10 +28,12 @@
                 <td>{{ $vestimenta->descripcion }}</td>
                 <td>{{ $vestimenta->cantidad }}</td>
                 <td>{{ $vestimenta->precio }}</td>
-                <td>{{ $vestimenta->tallaje }}</td>
+                <td>{{ $vestimenta->categoria->nombre }}</td>
                 <td>
+                    <a href="{{ route('detalles_vestimentas.talla', ['id' => $vestimenta->id]) }}" class="btn btn-sm btn-success">Talla</a>
+                    <div class="my-1"></div>
                     <a href="{{ route('admin.edit.vestimenta', ['id' => $vestimenta->id]) }}" class="btn btn-sm btn-warning">Editar</a>
-                    <h3></h3>
+                    <div class="my-1"></div>
                     <form action="{{ route('vestimentas.destroy', $vestimenta->id) }}" method="POST" style="display: inline;"> 
                         @csrf
                         @method('DELETE')

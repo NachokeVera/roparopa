@@ -6,6 +6,7 @@ use App\Models\Vestimenta;
 use Illuminate\Http\Request;
 use App\Http\Requests\VestimentaRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Categoria;
 
 class VestimentaController extends Controller
 {
@@ -23,7 +24,8 @@ class VestimentaController extends Controller
      */
     public function create()
     {
-        return view('admin.form-vestimenta');
+        $categorias = Categoria::all();
+        return view('admin.form-vestimenta',compact('categorias'));
     }
 
     /**
@@ -32,13 +34,14 @@ class VestimentaController extends Controller
     public function store(VestimentaRequest $request)
     {
         $imagenPath = $request->file('imagen')->store('public/storage/imagenes');
+        $categoriaId = (int)$request->input('categoria');
 
         Vestimenta::create([
             'imagen' => $imagenPath,
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'precio' => $request->precio,
-            
+            'categoria_id' => $categoriaId
         ]);
 
         return redirect()->route('inicio');//->with('success', 'vestimenta agregada exitosamente.');
@@ -55,7 +58,7 @@ class VestimentaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         $vestimenta = vestimenta::find($id);
         return view('admin.editar-vestimenta', compact('vestimenta'));

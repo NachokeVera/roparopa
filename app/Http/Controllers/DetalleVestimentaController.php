@@ -115,27 +115,27 @@ class DetalleVestimentaController extends Controller
         $detallesVestimentas = DetalleVestimenta::all();
         return view('detalle_vestimenta.det_vest_index',compact('detallesVestimentas'));
     }
-    public function create(){
-        $vestimentas = Vestimenta::all();
+    public function talla(string $id){
+        $vestimenta = Vestimenta::find($id);
         $tallas = Talla::all();
-        $categorias = Categoria::all();
-
-        return view('admin.detalle_vestimenta.det_vest_crear', compact('vestimentas','tallas','categorias'));
+        $detallesVestimentas = DetalleVestimenta::where('vestimenta_id', '=', $id)->get();
+        return view('admin.detalle_vestimenta.det_vest_crear', compact('vestimenta','tallas','detallesVestimentas'));
     }
     public function store(Request $request){
 
-        $vestimentaId = (int)$request->input('RadioVest');
+        $vestimentaId = (int)$request->input('vestimenta');
         $tallaId = (int)$request->talla;
-        $categoriaId = (int)$request->input('categoria');
         $cantidad = (int)$request->input('cantidad');
 
         // Crear el detalle de vestimenta
         DetalleVestimenta::create([
             'vestimenta_id' => $vestimentaId,
             'talla_id' => $tallaId,
-            'categoria_id' => $categoriaId,
             'cantidad' => $cantidad,
         ]);
-        return redirect()->route('inicio');
+        return redirect()->route('detalles_vestimentas.talla',['id'=>$vestimentaId]);
+    }
+    public function create(){
+        return view('acceso-denegado');
     }
 }

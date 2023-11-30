@@ -16,11 +16,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('vestimenta_id');
             $table->unsignedBigInteger('talla_id');
-            $table->unsignedBigInteger('categoria_id');
             //atributos
             $table->mediumInteger('cantidad');
             //foreing key
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->foreign('vestimenta_id')->references('id')->on('vestimentas');
             $table->foreign('talla_id')->references('id')->on('tallas');
             $table->timestamps();

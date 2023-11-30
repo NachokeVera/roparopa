@@ -14,7 +14,7 @@ class Categoria extends Model
 
     public function detalleVestimentas(): HasMany
     {
-        return $this->hasMany(DetalleVestimenta::class);
+        return $this->hasMany(Vestimenta::class);
     }
 
 }

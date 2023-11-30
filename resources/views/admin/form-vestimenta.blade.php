@@ -31,6 +31,16 @@
                                 <label for="precio">Precio:</label>
                                 <input type="number" class="form-control" id="precio" name="precio" step="1">
                             </div>
+
+                            <div class="form-group">
+                                <label for="categoria">Categoria:</label>
+                                <select class="form-select" aria-label="Default select example" name="categoria">
+                                    <option selected>Open this select menu</option>
+                                    @foreach ($categorias as $categoria)
+                                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             {{-- 
                             <div class="form-group">
                                 <label for="cantidad">Cantidad:</label>
