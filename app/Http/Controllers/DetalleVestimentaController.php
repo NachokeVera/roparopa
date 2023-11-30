@@ -111,6 +111,10 @@ class DetalleVestimentaController extends Controller
 
     ////////////////////////////////////////////////////////////////////
 
+    public function index(){
+        $detallesVestimentas = DetalleVestimenta::all();
+        return view('detalle_vestimenta.det_vest_index',compact('detallesVestimentas'));
+    }
     public function create(){
         $vestimentas = Vestimenta::all();
         $tallas = Talla::all();
