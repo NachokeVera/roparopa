@@ -8,7 +8,7 @@
         @method('PUT')
     
         <div class="form-group mb-2">
-            <label for="imagen">Foto:</label>
+            <label for="imagen">Imagen:</label>
             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
         </div>
     
