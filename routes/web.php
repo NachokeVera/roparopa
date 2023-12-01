@@ -45,6 +45,8 @@ Route::get('/admin/vestimentas/{id}', [VestimentaController::class, 'mostrarEdit
 
 Route::resource('detalles_vestimentas',DetalleVestimentaController::class);
 Route::get('/detalles_vestimenta/talla/{id}',[DetalleVestimentaController::class, 'talla'])->name('detalles_vestimentas.talla');
+
+Route::get('/mostrar-prendas', [VestimentaController::class, 'mostrarPrendas'])->name('filtrar-prenda');
 /*
 
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');

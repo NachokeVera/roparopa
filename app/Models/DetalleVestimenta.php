@@ -19,7 +19,7 @@ class DetalleVestimenta extends Model
     }
     public function talla(): BelongsTo
     {
-        return $this->belongsTo(Talla::class);
+        return $this->belongsTo(Talla::class,'talla_id');
     }
     
 
