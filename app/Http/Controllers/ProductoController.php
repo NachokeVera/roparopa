@@ -16,11 +16,13 @@ class ProductoController extends Controller
 {
     
 
-public function mostrarCompraProducto(int $id)
+public function mostrarCompraProducto(int $id, Request $request)
 {
     $vestimenta = vestimenta::find($id);
+    $talla=$request->talla;
+    
 
-    return view('compra_producto', compact('vestimenta'));
+    return view('compra_producto', compact('vestimenta', "talla"));
 }
 
 
@@ -31,6 +33,7 @@ public function mostrarCompraProducto(int $id)
 public function realizarCompra(Request $request, int $id)
 {   $request->session()->put('datosCompra', $request->except('_token'));
     $vestimenta = Vestimenta::find($id);
+   
     
     /* $cliente = User::where('rut', 'LIKE', '%' . $request->rut . '%')->get(); */
     $nombre = $request->nombre;
@@ -48,13 +51,10 @@ public function realizarCompra(Request $request, int $id)
         
         $data = [
             'vestimenta' => $vestimenta,
-            /* 'cliente' =>$cliente, */
+            
             'horaActual'=>$horaActual, 
-            /* 'nombre'=>$nombre,
-            'rut'=>$rut,
-            'direccion'=>$direccion,
-            'telefono'=>$telefono, */
-            /* 'datosCompra'=>$datosCompra */
+            
+            
             
         ];
 

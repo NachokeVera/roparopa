@@ -132,6 +132,7 @@ class VestimentaController extends Controller
     {
         
         $vestimentas = Vestimenta::all();
+        $tallas = Talla::all();
     
         // Obtener el nombre de la prenda desde la solicitud
         $nombre_prenda = $request->input('nombre_prenda');
@@ -142,7 +143,7 @@ class VestimentaController extends Controller
         }
     
 
-    return view('inicio', compact('vestimentas', 'nombre_prenda'));
+    return view('inicio', compact('vestimentas', 'nombre_prenda','tallas'));
 }
 
 }

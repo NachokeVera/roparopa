@@ -14,8 +14,7 @@
             <h5 class="card-title">{{ $vestimenta->nombre }}</h5>
             <p class="card-text">{{ $vestimenta->descripcion }}</p>
             <p class="card-text"><strong>Precio: ${{ $vestimenta->precio }}</strong></p>
-            
-           
+            <p>{{ $talla }}</p>
         </div>
         
     </div>
