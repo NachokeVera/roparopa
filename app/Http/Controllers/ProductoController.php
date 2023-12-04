@@ -29,25 +29,37 @@ public function mostrarCompraProducto(int $id)
 
 
 public function realizarCompra(Request $request, int $id)
-{   $vestimenta = Vestimenta::find($id);
-    $cliente = User::where('rut', 'LIKE', '%' . $request->rut . '%')->get();
+{   $request->session()->put('datosCompra', $request->except('_token'));
+    $vestimenta = Vestimenta::find($id);
+    
+    /* $cliente = User::where('rut', 'LIKE', '%' . $request->rut . '%')->get(); */
+    $nombre = $request->nombre;
+    $rut = $request->rut;
+    $direccion = $request->direccion;
+    $telefono = $request->telefono;
     $horaActual = Carbon::now();
+    $datosCompra = session('datosCompra');
 
     
     
     
         // Lógica para procesar el formulario y generar la información
 
-        // Ejemplo de datos
+        
         $data = [
             'vestimenta' => $vestimenta,
-            'cliente' =>$cliente,
-            'horaActual'=>$horaActual // Supongo que $vestimenta es la información de la prenda
+            /* 'cliente' =>$cliente, */
+            'horaActual'=>$horaActual, 
+            /* 'nombre'=>$nombre,
+            'rut'=>$rut,
+            'direccion'=>$direccion,
+            'telefono'=>$telefono, */
+            /* 'datosCompra'=>$datosCompra */
             
         ];
 
         // Generar el PDF
-        $pdf = PDF::loadView('compra', $data);
+        $pdf = PDF::loadView('compra', $data ,['datosCompra' => $datosCompra]);
         return $pdf->stream();
 
         
