@@ -6,7 +6,7 @@
     <form method="POST" action="{{ route('vestimentas.update', $vestimentas->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-    
+        
         <div class="form-group mb-2">
             <label for="imagen">Imagen:</label>
             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
@@ -29,6 +29,7 @@
     
         <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('¿Estás seguro de que deseas modificar esta vestimenta?')">Guardar</button>
     </form>
+    
     
     
     

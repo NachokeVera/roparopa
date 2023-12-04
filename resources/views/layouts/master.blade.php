@@ -19,21 +19,20 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('inicio') }}">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ventas</a>
-            </li>
+            
           </ul>
           <ul class="navbar-nav mr-auto">
             @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ auth()->user()->rut }}
+                {{ auth()->user()->nombre }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @if (auth()->user() && (auth()->user()->perfil_id == 1))
                 <a class="dropdown-item" href="{{ route('vestimentas.create') }}">Agregar ropa</a>
                 <a class="dropdown-item" href="{{ route('admin.show.vestimenta') }}">Listar vestimentas</a>
                 <a class="dropdown-item" href="#">Agregar/editar Categorias</a>
+                <a class="dropdown-item" href="#">Ventas</a>
                 <a class="dropdown-item" href="{{route('logout')}}">Cerrar sesión</a>
                 @else
                 <a class="dropdown-item" href="#">Opcion 1</a>

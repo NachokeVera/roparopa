@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Categoria;
 use Database\Seeders\CategoriaSeeder;
 
+
+use App\Public\imagenes\File;
+
+use App\Models\DetalleVestimenta;
 use App\Models\Talla;
+
+
 
 class VestimentaController extends Controller
 {
