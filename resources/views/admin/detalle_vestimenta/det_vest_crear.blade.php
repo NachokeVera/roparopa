@@ -37,8 +37,8 @@
                                 <input type="hidden" name="vestimenta" value="{{ $vestimenta->id }}">
 
                                 <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-success">Sumar</button>
-                                    <button type="button" class="btn btn-danger ml-2">Restar</button>
+                                    <button type="submit" class="btn btn-success">Agregar</button>
+                                    
                                 </div>
                             </form>
                         </div>

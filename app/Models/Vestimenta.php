@@ -21,6 +21,15 @@ class Vestimenta extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($vestimenta) {
+            // Elimina los detalles de la vestimenta en cascada
+            $vestimenta->detalleVestimentas()->delete();
+        });
+    }
 
 }
 

@@ -111,7 +111,7 @@ class VestimentaController extends Controller
      */
     public function destroy(string $id)
     {
-        $vestimenta = vestimenta::find($id);
+        $vestimenta = Vestimenta::find($id);
         $vestimenta->delete();
         return redirect()->route('admin.show.vestimenta');
     }
