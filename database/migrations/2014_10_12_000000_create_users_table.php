@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('nombre',20);
             $table->string('apellido',20);
             $table->integer('perfil_id')->default(2);
-            /* $table->string('correo');
+            $table->string('correo');
             $table->string('direccion');
-            $table->integer('telefono'); */
+            $table->integer('telefono'); 
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- Css bootstrap --}}
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+@extends('layouts.master')
+
+@section('contenido-principal')
     <title>Registrar</title>
 </head>
 <body>
@@ -25,6 +20,14 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="form-group">
+                                <label for="correo">correo:</label>
+                                <input type="correo" class="form-control" id="correo" name= "correo" placeholder="Ingrese su Correo">
+                            </div>
+                            @error('correo')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                           
+                            <div class="form-group">
                                 <label for="password">Contraseña:</label>
                                 <input type="password" class="form-control" id="password" name= "password" placeholder="Ingrese su Contraseña">
                             </div>
@@ -42,10 +45,23 @@
                                 <label for="apellido">Apellido:</label>
                                 <input type="text" class="form-control" id="apellido" name= "apellido" placeholder="Ingrese su Apellido">
                             </div>
-                            @error('Apellido')
+                            @error('apellido')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                                <div class="form-group">
+                                <label for="telefono">Telefono:</label>
+                                <input type="telefono" class="form-control" id="telefono" name= "telefono" placeholder="Ingrese su Telefono">
+                            </div>
+                            @error('telefono')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="form-group">
+                                <label for="direccion">Direccion:</label>
+                                <input type="direccion" class="form-control" id="direccion" name= "direccion" placeholder="Ingrese su Direccion">
+                            </div>
+                            @error('direccion')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
 
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
@@ -56,3 +72,4 @@
     </div>
 </body>
 </html>
+@endsection

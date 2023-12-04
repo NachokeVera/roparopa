@@ -5,6 +5,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VestimentaController;
 use App\Http\Controllers\DetalleVestimentaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CompraController;
+
 // web.php
 
 
@@ -27,6 +30,7 @@ use App\Http\Controllers\DetalleVestimentaController;
 
 //Auth::routes();
 //registro
+/* Route::get('/pdf', [ProductoController::class, 'pdf'])->name('.pdf'); */
 Route::get('/register', [RegisterController::class, 'show'])->name('show.register');
 Route::post('/registro', [RegisterController::class, 'registrar'])->name('post.register');
 //login
@@ -47,6 +51,12 @@ Route::resource('detalles_vestimentas',DetalleVestimentaController::class);
 Route::get('/detalles_vestimenta/talla/{id}',[DetalleVestimentaController::class, 'talla'])->name('detalles_vestimentas.talla');
 
 Route::get('/mostrar-prendas', [VestimentaController::class, 'mostrarPrendas'])->name('filtrar-prenda');
+
+
+Route::get('/compra-producto/{idProducto}', [ProductoController::class, 'mostrarCompraProducto'])->name('compra.producto');
+Route::post('/realizar-compra/{id}.pdf', [ProductoController::class, 'realizarCompra'])->name('compra.pdf');
+
+
 /*
 
 Route::get('/', [PrendaController::class, 'inicioMostrar'])->name('inicio');

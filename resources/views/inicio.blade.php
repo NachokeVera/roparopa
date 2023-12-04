@@ -25,23 +25,9 @@
                         <h5 class="card-title">{{ $vestimenta->nombre }}</h5>
                         <p class="card-text">{{ $vestimenta->descripcion }}</p>
                         <p class="card-text"><strong>Precio: ${{ $vestimenta->precio }}</strong></p>
-                        <!-- <p class="card-text">Cantidad disponible: {{ $vestimenta->cantidad }}</p>  
-                        
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Talla</span>
-                            </div>
-                            <select class="custom-select" id="tallaje" enable>
-                                <option selected>{{ $vestimenta->tallaje }}</option>
-                            </select>
-                        </div>
-                        <div class="form-group row">
-                            <label for="cantidad" class="col-sm-4 col-form-label">Cantidad:</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" id="cantidad" name="cantidad">
-                            </div> -->
+                       
                     </div>
-                    <button type="submit" class="btn btn-sm btn-info" >Agregar al carro</button>
+                    <a href="{{ route('compra.producto', ['idProducto' => $vestimenta->id]) }}" class="btn btn-sm btn-info">Agregar al carro</a>
                 </div>
             </div>
         @endforeach
