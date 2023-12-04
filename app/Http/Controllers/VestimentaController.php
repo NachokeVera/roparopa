@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\VestimentaRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Categoria;
+use Database\Seeders\CategoriaSeeder;
+
+use App\Models\Talla;
 
 class VestimentaController extends Controller
 {
@@ -16,7 +19,9 @@ class VestimentaController extends Controller
     public function index()
     {
         $vestimentas = Vestimenta::all();
-        return view('inicio', compact('vestimentas'));
+        $tallas = Talla::all();
+        $categorias = Categoria::all();
+        return view('inicio', compact('vestimentas','tallas','categorias'));
     }
 
     /**

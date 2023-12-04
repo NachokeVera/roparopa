@@ -21,7 +21,7 @@
                                 <div class="form-group mt-3">
                                     <label for="talla">Talla:</label>
                                     <select class="form-select" aria-label="Default select example" name="talla">
-                                        <option selected>Open this select menu</option>
+                                        <option selected>Selecciona la Talla</option>
                                         @foreach ($tallas as $talla)
                                             <option value="{{ $talla->id }}">{{ $talla->talla }}</option>
                                         @endforeach

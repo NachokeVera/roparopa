@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="categoria">Categoria:</label>
                                 <select class="form-select" aria-label="Default select example" name="categoria">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Selecciona la Categoria</option>
                                     @foreach ($categorias as $categoria)
                                     <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                                     @endforeach
